@@ -26,7 +26,7 @@ class PostFactory extends Factory
         return [
             'user_id'=> rand(1,10),
             'category_id'=> rand(1,20),
-            'country_id'=> rand(1,225),
+            'country_id'=> rand(1,200),
             'name' => $title,
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->text(200),

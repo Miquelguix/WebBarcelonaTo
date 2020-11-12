@@ -15,14 +15,86 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        $countries = ['Afganistán', 'Albania', 'Alemania', 'Algeria', 'Angola', 'Anguila', 'Antigua y Barbuda', 'Arabia Saudí', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaiyán', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Bélgica', 'Belice', 'Benín', 'Bermuda', 'Bielorrusia', 'Bolivia', 'Bosnia & Hercegovina', 'Botsuana', 'Brasil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Bután', 'Camboya', 'Camerún', 'Canadá', 'Chad', 'Chile', 'China', 'Chipre', 'Colombia', 'Comoras', 'Corea del Norte', 'Corea del Sur', 'Costa Rica', 'Costa de Marfil', 'Croacia', 'Cuba', 'Curazao', 'Dinamarca', 'Dominica', 'Ecuador', 'Egipto', 'El Salvador', 'Emiratos Árabes Unidos', 'Eritrea', 'Eslovaquia', 'Eslovenia', 'España', 'Estados Unidos', 'Estonia', 'Etiopía', 'Fiji', 'Filipinas', 'Finlandia', 'Francia', 'Gabón', 'Gambia', 'Georgia', 'Ghana', 'Gibraltar', 'Grecia', 'Grenada', 'Groenlandia', 'Guadalupe', 'Guam', 'Guatemala', 'Guayana Francesa', 'Guinea', 'Guinea-Bissau', 'Guinea Ecuatorial', 'Guyana', 'Haití', 'Honduras', 'Hong Kong', 'Hungría', 'India', 'Indonesia', 'Irán', 'Iraq', 'Irlanda', 'Islandia', 'Islas Caimán', 'Islas Cocos (Keeling)', 'Islas Cook', 'Islas Feroe', 'Islas Malvinas', 'Islas Marshall', 'Islas Salomón', 'Islas Turcas y Caicos', 'Islas Vírgenes Británicas', 'Islas Vírgenes de Estados Unidos', 'Islas Wallis y Futuna', 'Islas de Cabo Verde', 'Israel', 'Italia', 'Jamaica', 'Japón', 'Jordania', 'Kazajstán', 'Kenia', 'Kirguistán', 'Kiribati', 'Kosovo', 'Kuwait', 'Laos', 'Lesotho', 'Letonia', 'Líbano', 'Liberia', 'Libia', 'Lituania', 'Luxemburgo', 'Macao', 'Macedonia', 'Madagascar', 'Malasia', 'Malawi', 'Maldivas', 'Mali', 'Malta', 'Marruecos', 'Martinica', 'Mauricio', 'Mauritania', 'Mayotte', 'México', 'Micronesia', 'Moldavia', 'Mónaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Nicaragua', 'Níger', 'Nigeria', 'Niue', 'Noruega', 'Nueva Caledonia', 'Nueva Zelanda', 'Oceanía americana (Islas Marianas)', 'Oceanía americana (Samoa)', 'Oceanía australiana (Christmas)', 'Oceanía australiana (Norfolk)', 'Omán', 'Países Bajos', 'Pakistán', 'Palaos', 'Panamá', 'Papúa Nueva Guinea', 'Paraguay', 'Perú', 'Polinesia Francesa', 'Polonia', 'Portugal', 'Puerto Rico', 'Qatar', 'Reino Unido', 'República Centroafricana', 'República Checa', 'República Democrática del Congo', 'República Dominicana', 'República de Sierra Leona', 'República del Congo', 'Reunión', 'Ruanda', 'Rumanía', 'Rusia', 'Samoa', 'San Pedro y Miquelón', 'San Vicente y las Granadinas', 'Santa Elena', 'Santa Kitts y Nevis', 'Santa Lucía', 'Santo Tomé y Príncipe', 'Senegal', 'Serbia', 'Seychelles', 'Singapur', 'Siria', 'Somalia', 'Sri Lanka', 'Suazilandia', 'Sudáfrica', 'Sudán', 'Sudán del Sur', 'Suecia', 'Suiza', 'Surinam', 'Tailandia', 'Taiwán', 'Tanzania', 'Tayikistán', 'Timor del Este', 'Togo', 'Tonga', 'Trinidad y Tobago', 'Túnez', 'Turkmenistán', 'Turquía', 'Tuvalu', 'Ucrania', 'Uganda', 'Uruguay', 'Uzbekistán', 'Vanuatu', 'Venezuela', 'Vietnam', 'Yemen', 'Yibuti', 'Zambia', 'Zimbabue'];
-
-        foreach($countries as $country) {
+        $africa = ['Angola','Argelia','Benín','Botsuana','Burkina Faso','Burundi','Cabo Verde','Camerún','Chad','Comoras y Mayotte','Costa de Marfil','Egipto','Eritrea','Etiopía','Gabón','Gambia','Ghana','Guinea Ecuatorial','Guinea','Guinea-Bissau','Kenia','Lesoto','Liberia','Libia','Madagascar','Malí','Malaui','Marruecos','Mauricio','Mauritania','Mozambique','Níger','Namibia','Nigeria','República Centroafricana','República Democrática del Congo','República del Congo','Ruanda','Santo Tomé y Príncipe','Senegal','Seychelles','Sierra Leona','Somalia y Somalilandia','Suazilandia','Sudáfrica','Sudán del Sur','Sudán','Túnez','Tanzania','Togo','Uganda','Yibuti','Zambia','Zimbabue'];
+        $continent = 'África';
+        foreach($africa as $country) {
              Country::create([
             'name' => $country,
-            'slug' => Str::slug($country),
-        ]);
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
         }
+
+
+        $americaDelNorte = ['Anguila','Antigua y Barbuda','Aruba, Bonaire y Curazao','Bahamas','Barbados','Belice','Bermudas','Canadá','Costa Rica','Cuba','Dominica','El Salvador','Estados Unidos','Granada','Guadalupe','Guatemala','Haití','Honduras','Islas Caimán','Islas Vírgenes, de los EE UU y Británicas','Jamaica','México','Martinica','Nicaragua','Panamá','Puerto Rico','República Dominicana','San Cristóbal y Nieves','San Vicente y las Granadinas','Santa Lucía','Trinidad y Tobago'];
+        $continent = 'América del Norte';
+        foreach($americaDelNorte as $country) {
+             Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
+        }
+
+
+        $americaDelSur = ['Argentina','Bolivia','Brasil','Chile','Colombia','Ecuador','Guayana Francesa','Guyana','Islas Malvinas','Paraguay','Perú','Surinam','Uruguay','Venezuela'];
+        $continent = 'América del Sur';
+        foreach($americaDelSur as $country) {
+             Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
+        }
+
+
+        $asia = ['Afganistán','Arabia Saudí','Armenia','Azerbaiyán','Bahréin','Bangladés','Brunéi','Bután','Camboya','China','Corea del Norte','Corea del Sur','Emiratos Árabes Unidos','Filipinas','Hong Kong','India','Indonesia','Irán','Iraq','Israel y los Territorios Palestinos','Japón','Jordania','Kazajistán','Kirguistán','Kuwait','Líbano','Laos','Macao','Malasia','Maldivas','Mongolia','Myanmar','Nepal','Omán','Pakistán','Qatar','Singapur','Siria','Sri Lanka','Tíbet','Tailandia','Taiwán','Tayikistán','Timor Oriental','Turkmenistán','Turquía','Uzbekistán','Vietnam','Yemen'];
+        $continent = 'Ásia';
+        foreach($asia as $country) {
+             Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
+        }
+
+
+        $europa = ['Albania','Alemania','Andorra','Austria','Bélgica','Bielorrusia','Bosnia y Herzegovina','Bulgaria','Chipre','Ciudad del Vaticano','Croacia','Dinamarca','Escocia','Eslovaquia','Eslovenia','España','Estonia','Finlandia','Francia','Gales','Georgia','Grecia','Groenlandia','Hungría','Inglaterra','Irlanda del Norte','Irlanda','Islandia','Italia','Kosovo','Letonia','Liechtenstein','Lituania','Luxemburgo','Mónaco','Macedonia','Malta','Moldavia','Montenegro','Noruega','Países Bajos','Polonia','Portugal','República Checa','Rumanía','Rusia','San Marino','Serbia','Suecia','Suiza','Ucrania'];
+        $continent = 'Europa';
+        foreach($europa as $country) {
+             Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
+        }
+
+
+        $oceania = ['Australia','Fiyi','Guam','Isla Pitcairn','Islas Cook','Islas Marianas del Norte','Islas Marshall','Islas Salomón','Kiribati','Micronesia','Nauru','Nueva Caledonia','Nueva Zelanda','Palaos','Papúa Nueva Guinea','Samoa','Tahití y la Polinesia Francesa','Tonga','Tuvalu','Vanuatu'];
+        $continent = 'Oceania';
+        foreach($oceania as $country) {
+             Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+            ]);
+        }
+       
+        
+        $country = 'Antartida';
+        
+        Country::create([
+            'name' => $country,
+            'countrySlug' => Str::slug($country),
+            'continent' => $continent,
+            'continentSlug' => Str::slug($continent),
+        ]);
        
     }
 }
