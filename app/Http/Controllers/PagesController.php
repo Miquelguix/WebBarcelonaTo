@@ -15,8 +15,8 @@ class PagesController extends Controller
         $postsFour = Post::where('id','>',30)->where('status', 'PUBLISHED')->take(3)->get();
         $postsLatest = Post::where('id','>',40)->where('status', 'PUBLISHED')->take(3)->get();
         $postsPopular = Post::where('id','>',50)->where('status', 'PUBLISHED')->take(3)->get();
-        // dd($postOne);
-        return view('web.blog', compact('postOne', 'postsFour', 'postsLatest', 'postsPopular'));
+        // dd($postsFour);
+        return view('web.posts', compact('postOne', 'postsFour', 'postsLatest', 'postsPopular'));
     }
     
     public function tienda(){        
@@ -32,7 +32,14 @@ class PagesController extends Controller
         $northAmerica = Country::where('continentSlug','america-del-norte')->orderBy('countrySlug')->get();
         $southAmerica = Country::where('continentSlug','america-del-sur')->orderBy('countrySlug')->get();  
 
-        return view('web.guias', compact('europa','asia','africa','oceania','northAmerica','southAmerica'));
+        return view('web.guias.index', compact('europa','asia','africa','oceania','northAmerica','southAmerica'));
+    }
+
+    public function guia($slug){        
+
+        $country = Country::where('countrySlug', $slug )->first();
+
+        return view('web.guias.show', compact('country'));
     }
 
     public function contacto(){        

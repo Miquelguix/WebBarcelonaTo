@@ -19,6 +19,14 @@ class CreateCountriesTable extends Migration
             $table->string('countrySlug', 64);
             $table->string('continent', 64);
             $table->string('continentSlug', 64);
+            $table->string('gob_id', 16);
+            $table->longText('importante')->nullable();
+            $table->longText('visados')->nullable();
+            $table->longText('seguridad')->nullable();
+            $table->longText('sanidad')->nullable();
+            $table->longText('divisas')->nullable();
+            $table->longText('otros')->nullable();
+            $table->longText('direcciones')->nullable();
             $table->timestamps();
         });
     }

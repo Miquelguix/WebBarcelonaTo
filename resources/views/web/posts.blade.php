@@ -10,7 +10,7 @@
 		<section class="font-sans mb-5 flex rounded overflow-hidden lg:shadow-lg flex-col lg:flex-row">
 			<div class="w-full lg:w-1/2">
 				<img class="p-2 rounded" src="{{ $postOne->file }}" alt="{{ $postOne->slug }}">
-				<a href="{{route('posts_country', $postOne->country->slug)}}" class="text-sm font-semibold text-blue-500 p-4">#{{$postOne->country->name }}</span>
+				<a href="{{route('posts_country', $postOne->country->countrySlug)}}" class="text-sm font-semibold text-blue-500 p-4">#{{$postOne->country->name }}</a>
 
 			</div>
 			<div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center">
@@ -37,12 +37,12 @@
 							{{ $postFour->excerpt }}
 						</p>
 						<a href="{{ route('post', $postFour->slug) }}" class="px-4 py-2 bg-blue-400 shadow-lg border rounded-lg text-white font-semibold tracking-wider focus:outline-none focus:shadow-outline hover:bg-blue-300 active:bg-blue-800">Leer más</a>
-						<a href="{{route('posts_country', $postFour->country->slug)}}" class="bg-grey-lighter rounded-full text-sm font-semibold text-grey-darker">#{{$postFour->country->name }}</span>
+						<a href="{{route('posts_country', $postFour->country->countrySlug)}}" class="bg-grey-lighter rounded-full text-sm font-semibold text-grey-darker">#{{$postFour->country->name }}</span>
 					</div>
 				</div>
 				@endforeach
 			</div>
-				
+		
 
 		<!-- end featured section -->
 
