@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TagSeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(PostSeeder::class);
+        $this->call(VideoSeeder::class);
+        $this->call(PlaylistSeeder::class);
     
 
     }

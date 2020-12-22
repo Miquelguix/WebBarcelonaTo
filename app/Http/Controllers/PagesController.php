@@ -3,25 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Video;
 use App\Models\Country;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function blog(){
-        
-        $postOne = Post::where('id','<',10)->where('status', 'PUBLISHED')->first();
-        $postsFour = Post::where('id','>',30)->where('status', 'PUBLISHED')->take(3)->get();
-        $postsLatest = Post::where('id','>',40)->where('status', 'PUBLISHED')->take(3)->get();
-        $postsPopular = Post::where('id','>',50)->where('status', 'PUBLISHED')->take(3)->get();
-        // dd($postsFour);
-        return view('web.posts', compact('postOne', 'postsFour', 'postsLatest', 'postsPopular'));
-    }
     
-    public function tienda(){        
-        return view('web.tienda');
-    }
+    
+    
 
     public function guias(){        
 
@@ -30,7 +21,8 @@ class PagesController extends Controller
         $africa = Country::where('continentSlug','africa')->orderBy('countrySlug')->get();
         $oceania = Country::where('continentSlug','oceania')->orderBy('countrySlug')->get();
         $northAmerica = Country::where('continentSlug','america-del-norte')->orderBy('countrySlug')->get();
-        $southAmerica = Country::where('continentSlug','america-del-sur')->orderBy('countrySlug')->get();  
+        $southAmerica = Country::where('continentSlug','america-del-sur')->orderBy('countrySlug')->get();
+        // dd($europa);
 
         return view('web.guias.index', compact('europa','asia','africa','oceania','northAmerica','southAmerica'));
     }
@@ -51,6 +43,13 @@ class PagesController extends Controller
         $post = Post::where('slug',$slug)->first();
 
         return view('web.post', compact('post'));
+    }
+
+    public function video($slug){
+        
+        $video = Video::where('slug',$slug)->select('link')->first();
+        // dd($video);
+        return view('web.video', compact('video'));
     }
 
     public function category($slug){

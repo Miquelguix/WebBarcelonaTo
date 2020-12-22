@@ -15,24 +15,16 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id')->unsigned();
-            $table->unsignedBigInteger('category_id')->unsigned();
-            $table->unsignedBigInteger('country_id')->unsigned();
-
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('country_id')->nullable();
             $table->string('name',128);
             $table->string('slug',128)->unique();
-
             $table->mediumText('excerpt')->nullable();
             $table->text('body');
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
-
             $table->string('file', 128)->nullable();
-
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
-            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade');
         });
     }
 

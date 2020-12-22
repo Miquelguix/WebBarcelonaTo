@@ -1,3 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+
+@font-face{
+font-family: 'champagne';
+src: url('C:/projects/barcelonato/public/fonts/champagne__limousines.eot') format('embedded-opentype'),
+url('C:/projects/barcelonato/public/fonts/champagne__limousines.woff') format('woff'),
+url('C:/projects/barcelonato/public/fonts/champagne__limousines.ttf') format('truetype'),
+url('C:/projects/barcelonato/public/fonts/champagne__limousines.svg') format('svg');
+}
+

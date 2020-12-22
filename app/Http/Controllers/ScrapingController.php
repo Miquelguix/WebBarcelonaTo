@@ -91,6 +91,38 @@ class ScrapingController extends Controller
 
     }
 
+    public function dades_lonely(){
+
+        $countries = country::where('gob_id','>',0)->select('id','gob_id')->get();
+
+        foreach ($countries as $country) {
+        
+        $client = new Client();
+        
+        $crawler = $client->request('GET', 'http://www.exteriores.gob.es/Portal/es/ServiciosAlCiudadano/SiViajasAlExtranjero/Paginas/DetalleRecomendacion.aspx?IdP=' . $country->gob_id .'');
+        
+        $importante = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoNotasImportantes"]')->html();
+        // dd($importante);
+        Country::where('gob_id', $country->id)->update(['importante' => $importante]);
+        $visados = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoDocumentacion"]')->html();
+        // dd($visados);
+        Country::where('gob_id', $country->id)->update(['visados' => $visados]);
+        $seguridad = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoSeguridad"]')->html();
+        Country::where('gob_id', $country->id)->update(['seguridad' => $seguridad]);
+        $sanidad = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoSanidad"]')->html();
+        Country::where('gob_id', $country->id)->update(['sanidad' => $sanidad]);
+        $divisas = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoDivisas"]')->html();
+        Country::where('gob_id', $country->id)->update(['divisas' => $divisas]);
+        $otros = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoOtros"]')->html();
+        Country::where('gob_id', $country->id)->update(['otros' => $otros]);
+        $direcciones = $crawler->filter('div[id="ctl00_SPWebPartManager1_g_91a26404_e729_4d20_aa63_65a96ad158df_ctl00_infoDirecciones"]')->html();
+        Country::where('gob_id', $country->id)->update(['direcciones' => $direcciones]);
+        }
+
+        return redirect()->route('blog');
+
+    }
+
 
 }
  

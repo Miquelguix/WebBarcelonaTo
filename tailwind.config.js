@@ -8,10 +8,14 @@ module.exports = {
     ],
 
     theme: {
+        fontFamily: {
+            'champ': ['champagne'],
+        },
+
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+           },
         },
     },
 
